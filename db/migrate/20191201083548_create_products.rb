@@ -5,7 +5,7 @@ class CreateProducts < ActiveRecord::Migration[5.2]
       t.text :description
       t.string :image_url
 
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end
