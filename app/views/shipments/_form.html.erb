@@ -1,10 +1,10 @@
-<%= form_with(model: moving, local: true) do |form| %>
-  <% if moving.errors.any? %>
+<%= form_with(model: shipment, local: true) do |form| %>
+  <% if shipment.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(moving.errors.count, "error") %> prohibited this moving from being saved:</h2>
+      <h2><%= pluralize(shipment.errors.count, "error") %> prohibited this shipment from being saved:</h2>
 
       <ul>
-      <% moving.errors.full_messages.each do |message| %>
+      <% shipment.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -17,8 +17,13 @@
   </div>
 
   <div class="field">
-    <%= form.label :shipment %>
-    <%= form.text_field :shipment %>
+    <%= form.label :moving %>
+    <%= form.text_field :moving %>
+  </div>
+
+  <div class="field">
+    <%= form.label :comment %>
+    <%= form.text_area :comment %>
   </div>
 
   <div class="field">
@@ -29,11 +34,6 @@
   <div class="field">
     <%= form.label :count %>
     <%= form.text_field :count %>
-  </div>
-
-  <div class="field">
-    <%= form.label :comment %>
-    <%= form.text_area :comment %>
   </div>
 
   <div class="actions">

@@ -2,14 +2,14 @@
 
 one:
   product: 
-  shipment: 
+  moving: 
+  comment: MyText
   price: 9.99
   count: 9.99
-  comment: MyText
 
 two:
   product: 
-  shipment: 
+  moving: 
+  comment: MyText
   price: 9.99
   count: 9.99
-  comment: MyText

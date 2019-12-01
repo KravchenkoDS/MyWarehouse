@@ -18,6 +18,7 @@ class MovingsTest < ApplicationSystemTestCase
     fill_in "Count", with: @moving.count
     fill_in "Price", with: @moving.price
     fill_in "Product", with: @moving.product
+    fill_in "Shipment", with: @moving.shipment
     click_on "Create Moving"
 
     assert_text "Moving was successfully created"
@@ -32,6 +33,7 @@ class MovingsTest < ApplicationSystemTestCase
     fill_in "Count", with: @moving.count
     fill_in "Price", with: @moving.price
     fill_in "Product", with: @moving.product
+    fill_in "Shipment", with: @moving.shipment
     click_on "Update Moving"
 
     assert_text "Moving was successfully updated"

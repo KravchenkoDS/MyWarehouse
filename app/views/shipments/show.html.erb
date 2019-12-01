@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Product:</strong>
+  <%= @shipment.product %>
+</p>
+
+<p>
+  <strong>Moving:</strong>
+  <%= @shipment.moving %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @shipment.comment %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @shipment.price %>
+</p>
+
+<p>
+  <strong>Count:</strong>
+  <%= @shipment.count %>
+</p>
+
+<%= link_to 'Edit', edit_shipment_path(@shipment) %> |
+<%= link_to 'Back', shipments_path %>

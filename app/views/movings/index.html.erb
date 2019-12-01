@@ -6,6 +6,7 @@
   <thead>
     <tr>
       <th>Product</th>
+      <th>Shipment</th>
       <th>Price</th>
       <th>Count</th>
       <th>Comment</th>
@@ -17,6 +18,7 @@
     <% @movings.each do |moving| %>
       <tr>
         <td><%= moving.product %></td>
+        <td><%= moving.shipment %></td>
         <td><%= moving.price %></td>
         <td><%= moving.count %></td>
         <td><%= moving.comment %></td>

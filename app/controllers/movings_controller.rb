@@ -69,6 +69,6 @@ class MovingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def moving_params
-      params.require(:moving).permit(:product, :price, :count, :comment)
+      params.require(:moving).permit(:product, :shipment, :price, :count, :comment)
     end
 end
