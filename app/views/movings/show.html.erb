@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Product:</strong>
+  <%= @moving.product %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @moving.price %>
+</p>
+
+<p>
+  <strong>Count:</strong>
+  <%= @moving.count %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @moving.comment %>
+</p>
+
+<%= link_to 'Edit', edit_moving_path(@moving) %> |
+<%= link_to 'Back', movings_path %>
