@@ -8,6 +8,7 @@ table class='table table-sm'
       th = t('moving.price')
       th = t('moving.count')
       th = t('moving.comment')
+      th = t('moving.status')
       th colspan="2"
 
   tbody
@@ -18,6 +19,7 @@ table class='table table-sm'
         td = moving.price
         td = moving.count
         td = moving.comment
+        td = moving.status
         td = link_to 'Show', moving
         td = link_to 'Edit', edit_moving_path(moving)
         td = link_to 'Destroy', moving, method: :delete, data: { confirm: 'Are you sure?' }

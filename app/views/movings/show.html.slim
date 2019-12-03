@@ -2,7 +2,8 @@
   = render 'common/errors', resource: @moving
 
   .moving
-    = render @moving
+    = render @moving do
+
 
 = link_to 'Edit', edit_moving_path(@moving)
 br

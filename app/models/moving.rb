@@ -1,4 +1,6 @@
 class Moving < ApplicationRecord
+  scope :order_by, -> (code) { where(order_code: code) }
+
   has_many :products, dependent: :nullify
   #has_many :shipments, dependent: :nullify
   #has_many :users, dependent: :nullify

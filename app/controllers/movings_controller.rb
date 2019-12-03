@@ -2,10 +2,12 @@ class MovingsController < ApplicationController
   before_action :set_moving, only: %i[show edit update destroy]
 
   def index
-    @movings = Moving.all
+    @movings = Moving.all.order(:order_code)
   end
 
-  def show; end
+  def show
+    @movings = Moving.order_by(@moving.order_code)
+  end
 
   def new
     @moving = Moving.new
@@ -52,7 +54,6 @@ class MovingsController < ApplicationController
 
   private
   def set_moving
-    #@moving = Moving.find(params[:id])
     @moving = Moving.find(params[:id])
   end
 

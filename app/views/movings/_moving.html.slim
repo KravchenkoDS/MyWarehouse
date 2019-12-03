@@ -1,7 +1,28 @@
-p = moving.order_code
-p = moving.price
-p = moving.count
-p = moving.comment
-p = moving.status
+h1 = t('.header')
 
+table class='table table-sm'
+  thead
+    tr
+      th = t('moving.order_code')
+      th = t('moving.product_id')
+      th = t('moving.price')
+      th = t('moving.count')
+      th = t('moving.status')
+      th = t('moving.comment')
+      th colspan="2"
+
+  tbody
+    - @movings.each do |moving|
+      tr
+        td = moving.order_code
+        td = moving.product_id
+        td = moving.price
+        td = moving.count
+        td = moving.status
+        td = moving.comment
+        td = link_to 'Show', moving
+        td = link_to 'Edit', edit_moving_path(moving)
+        td = link_to 'Destroy', moving, method: :delete, data: { confirm: 'Are you sure?' }
+        td
+br
 / = render 'subscriptions/subscription', subscription: question
