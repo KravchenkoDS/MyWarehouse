@@ -1,0 +1,5 @@
+$('.product-errors').html('<%= render 'common/errors', resource: @product %>');
+
+<% unless@product.errors.present? %>
+$('<%= "#product-#{@product.id}" %>').html('<%= j render @product %>')
+<% end %>

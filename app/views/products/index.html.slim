@@ -1,0 +1,22 @@
+h1 = t('.header')
+
+table class='table table-sm'
+  thead
+    tr
+      th = t('product.id')
+      th = t('product.title')
+      th = t('product.description')
+      th = t('product.image_url')
+      th colspan="2"
+
+  tbody
+    - @products.each do |product|
+      tr
+        td = product.id
+        td = product.title
+        td = product.description
+        td = product.image_url
+        td
+br
+
+= link_to t('.new'), new_product_path

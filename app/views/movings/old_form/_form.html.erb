@@ -13,12 +13,12 @@
 
   <div class="field">
     <%= form.label :product %>
-    <%= form.text_field :product %>
+    <%= form.collection_select :product_id, Product.all, :id, :title, prompt: true, class: 'form-control' %>
   </div>
 
   <div class="field">
     <%= form.label :shipment %>
-    <%= form.text_field :shipment %>
+    <%= form.collection_select :shipment_id, Shipment.all, :id, :id, prompt: true, class: 'form-control' %>
   </div>
 
   <div class="field">
@@ -34,6 +34,11 @@
   <div class="field">
     <%= form.label :comment %>
     <%= form.text_area :comment %>
+  </div>
+
+  <div class="field">
+    <%= form.label :status %><br>
+    <%= form.select :status, Moving.statuses.keys %>
   </div>
 
   <div class="actions">

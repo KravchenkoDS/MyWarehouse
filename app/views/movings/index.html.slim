@@ -1,0 +1,19 @@
+h1 = t('.header')
+
+table class='table table-sm'
+  thead
+    tr
+      th = t('.title')
+      th = t('common.user')
+      th = t('.answers_count')
+      th colspan="2"
+
+  tbody
+    - @movings.each do |moving|
+      tr
+        td = moving.price
+        td = moving.count
+        td
+br
+
+= link_to t('.new'), new_moving_path

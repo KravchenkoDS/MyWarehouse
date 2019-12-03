@@ -5,8 +5,9 @@
 <table>
   <thead>
     <tr>
-      <th>Product</th>
-      <th>Shipment</th>
+<!--      <th>Product</th>-->
+<!--      <th>Shipment</th>-->
+      <th>Status</th>
       <th>Price</th>
       <th>Count</th>
       <th>Comment</th>
@@ -17,8 +18,9 @@
   <tbody>
     <% @movings.each do |moving| %>
       <tr>
-        <td><%= moving.product %></td>
-        <td><%= moving.shipment %></td>
+<!--        <td><%#= moving.product %></td>-->
+<!--        <td><%#= moving.shipment %></td>-->
+        <td><%= moving.status %></td>
         <td><%= moving.price %></td>
         <td><%= moving.count %></td>
         <td><%= moving.comment %></td>

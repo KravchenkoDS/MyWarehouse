@@ -1,0 +1,14 @@
+= render 'common/errors', resource: @product
+
+= form_with model: @product, local: true do |f|
+  p
+    = f.label :title
+    = f.text_field :title
+  p
+    = f.label :description
+    = f.text_area :description
+  p
+    = f.label :image_url
+    = f.text_field :image_url
+
+  p= f.submit 'Save'

@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= form.label :product %>
-    <%= form.text_field :product %>
+    <%= form.collection_select :product_id, Product.all, :id, :title, prompt: true, class: 'form-control' %>
   </div>
 
   <div class="field">

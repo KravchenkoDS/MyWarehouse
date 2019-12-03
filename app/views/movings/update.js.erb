@@ -1,0 +1,5 @@
+$('.moving-errors').html('<%= render 'common/errors', resource: @moving %>');
+
+<% unless@moving.errors.present? %>
+$('<%= "#moving-#{@moving.id}" %>').html('<%= j render @moving %>')
+<% end %>

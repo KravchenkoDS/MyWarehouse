@@ -16,22 +16,19 @@ ActiveRecord::Schema.define(version: 2019_12_01_092859) do
   enable_extension "plpgsql"
 
   create_table "movings", force: :cascade do |t|
-    t.decimal "price", precision: 8, scale: 2
-    t.decimal "count", precision: 8, scale: 2
+    t.decimal "price", precision: 8, scale: 2, null: false
+    t.decimal "count", precision: 8, scale: 2, null: false
     t.text "comment"
+    t.integer "status", default: 0, null: false
     t.bigint "products_id"
-    t.bigint "shipments_id"
-    t.bigint "users_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["products_id"], name: "index_movings_on_products_id"
-    t.index ["shipments_id"], name: "index_movings_on_shipments_id"
-    t.index ["users_id"], name: "index_movings_on_users_id"
   end
 
   create_table "products", force: :cascade do |t|
-    t.string "title"
-    t.text "description"
+    t.string "title", null: false
+    t.text "description", null: false
     t.string "image_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -39,8 +36,8 @@ ActiveRecord::Schema.define(version: 2019_12_01_092859) do
 
   create_table "shipments", force: :cascade do |t|
     t.text "comment"
-    t.decimal "price", precision: 8, scale: 2
-    t.decimal "count", precision: 8, scale: 2
+    t.decimal "price", precision: 8, scale: 2, null: false
+    t.decimal "count", precision: 8, scale: 2, null: false
     t.bigint "products_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -53,7 +50,5 @@ ActiveRecord::Schema.define(version: 2019_12_01_092859) do
   end
 
   add_foreign_key "movings", "products", column: "products_id"
-  add_foreign_key "movings", "shipments", column: "shipments_id"
-  add_foreign_key "movings", "users", column: "users_id"
   add_foreign_key "shipments", "products", column: "products_id"
 end
