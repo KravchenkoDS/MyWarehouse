@@ -24,6 +24,12 @@ class MovingsController < ApplicationController
   end
 
   def update
+    if @moving.update(moving_params)
+      redirect_to @moving, notice: 'Your moving successfully created.'
+    else
+      render :edit
+    end
+=begin
     respond_to do |format|
       if @moving.update(moving_params)
         format.html { redirect_to @moving, notice: 'Moving was successfully updated.' }
@@ -33,6 +39,7 @@ class MovingsController < ApplicationController
         format.json { render json: @moving.errors, status: :unprocessable_entity }
       end
     end
+=end
   end
 
   def destroy
@@ -44,11 +51,12 @@ class MovingsController < ApplicationController
   end
 
   private
-    def set_moving
-      @moving = Moving.find(params[:id])
-    end
+  def set_moving
+    #@moving = Moving.find(params[:id])
+    @moving = Moving.find(params[:id])
+  end
 
-    def moving_params
-      params.require(:moving).permit(:product_id, :shipment, :price, :count, :comment, :status)
-    end
+  def moving_params
+    params.require(:moving).permit(:order_code, :product_id, :shipment, :price, :count, :comment, :status)
+  end
 end

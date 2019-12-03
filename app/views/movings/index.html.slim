@@ -3,6 +3,8 @@ h1 = t('.header')
 table class='table table-sm'
   thead
     tr
+      th = t('moving.order_code')
+      th = t('moving.product_id')
       th = t('moving.price')
       th = t('moving.count')
       th = t('moving.comment')
@@ -11,10 +13,14 @@ table class='table table-sm'
   tbody
     - @movings.each do |moving|
       tr
+        td = moving.order_code
         td = moving.product_id
         td = moving.price
         td = moving.count
         td = moving.comment
+        td = link_to 'Show', moving
+        td = link_to 'Edit', edit_moving_path(moving)
+        td = link_to 'Destroy', moving, method: :delete, data: { confirm: 'Are you sure?' }
         td
 br
 

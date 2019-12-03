@@ -24,6 +24,12 @@ class ProductsController < ApplicationController
   end
 
   def update
+    if @product.update(product_params)
+      redirect_to @product, notice: 'Your moving successfully created.'
+    else
+      render :edit
+    end
+=begin
     respond_to do |format|
       if @product.update(product_params)
         format.html { redirect_to @product, notice: 'Product was successfully updated.' }
@@ -33,6 +39,7 @@ class ProductsController < ApplicationController
         format.json { render json: @product.errors, status: :unprocessable_entity }
       end
     end
+=end
   end
 
   def destroy
@@ -44,11 +51,11 @@ class ProductsController < ApplicationController
   end
 
   private
-    def set_product
-      @product = Product.find(params[:id])
-    end
+  def set_product
+    @product = Product.find(params[:id])
+  end
 
-    def product_params
-      params.require(:product).permit(:title, :description, :image_url)
-    end
+  def product_params
+    params.require(:product).permit(:title, :description, :image_url)
+  end
 end

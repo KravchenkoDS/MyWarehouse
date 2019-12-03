@@ -1,4 +1,5 @@
-= render 'common/errors', resource: @moving
+.moving-errors
+  = render 'common/errors', resource: @moving
 
 = form_with model: @moving, local: true do |f|
   p
@@ -22,4 +23,6 @@
 
   p= f.submit 'Save'
 
-= link_to 'New Moving', new_moving_path
+= link_to 'Show', @moving
+br
+= link_to 'Back', movings_path

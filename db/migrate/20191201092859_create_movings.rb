@@ -1,6 +1,7 @@
 class CreateMovings < ActiveRecord::Migration[5.2]
   def change
     create_table :movings do |t|
+      t.integer :order_code, default: 0, null: false
       t.decimal :price, precision: 8, scale: 2, null: false
       t.decimal :count, precision: 8, scale: 2, null: false
       t.text :comment

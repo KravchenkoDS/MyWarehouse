@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 2019_12_01_092859) do
   enable_extension "plpgsql"
 
   create_table "movings", force: :cascade do |t|
+    t.integer "order_code", default: 0, null: false
     t.decimal "price", precision: 8, scale: 2, null: false
     t.decimal "count", precision: 8, scale: 2, null: false
     t.text "comment"
