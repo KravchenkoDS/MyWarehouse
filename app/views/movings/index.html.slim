@@ -3,16 +3,18 @@ h1 = t('.header')
 table class='table table-sm'
   thead
     tr
-      th = t('.title')
-      th = t('common.user')
-      th = t('.answers_count')
+      th = t('moving.price')
+      th = t('moving.count')
+      th = t('moving.comment')
       th colspan="2"
 
   tbody
     - @movings.each do |moving|
       tr
+        td = moving.product_id
         td = moving.price
         td = moving.count
+        td = moving.comment
         td
 br
 

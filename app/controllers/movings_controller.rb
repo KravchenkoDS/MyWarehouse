@@ -1,5 +1,5 @@
 class MovingsController < ApplicationController
-  before_action :set_moving, only: [:show, :edit, :update, :destroy]
+  before_action :set_moving, only: %i[show edit update destroy]
 
   def index
     @movings = Moving.all
@@ -49,6 +49,6 @@ class MovingsController < ApplicationController
     end
 
     def moving_params
-      params.require(:moving).permit(:product, :shipment, :price, :count, :comment, :status)
+      params.require(:moving).permit(:product_id, :shipment, :price, :count, :comment, :status)
     end
 end

@@ -20,10 +20,10 @@ ActiveRecord::Schema.define(version: 2019_12_01_092859) do
     t.decimal "count", precision: 8, scale: 2, null: false
     t.text "comment"
     t.integer "status", default: 0, null: false
-    t.bigint "products_id"
+    t.bigint "product_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["products_id"], name: "index_movings_on_products_id"
+    t.index ["product_id"], name: "index_movings_on_product_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -49,6 +49,6 @@ ActiveRecord::Schema.define(version: 2019_12_01_092859) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "movings", "products", column: "products_id"
+  add_foreign_key "movings", "products"
   add_foreign_key "shipments", "products", column: "products_id"
 end
