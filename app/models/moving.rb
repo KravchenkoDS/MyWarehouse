@@ -5,8 +5,7 @@ class Moving < ApplicationRecord
   has_many :shipments, dependent: :nullify
   has_many :users, dependent: :nullify
 
-  # enum status: { not_set: 'not_set', in: 'in', out: 'out', internal: 'internal' }.freeze
-  enum status: %i[not_set inq out internal].freeze
+  enum status: %i[internal_displacement sale goods_receipt].freeze
   validates :status, inclusion: { in: statuses.keys }
 
 
