@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_04_043305) do
+ActiveRecord::Schema.define(version: 2019_12_04_044855) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,10 +21,25 @@ ActiveRecord::Schema.define(version: 2019_12_04_043305) do
     t.decimal "count", precision: 8, scale: 2, null: false
     t.text "comment"
     t.integer "status", default: 0, null: false
+    t.bigint "from_id"
+    t.bigint "to_id"
     t.bigint "product_id"
+    t.bigint "shipments_id"
+    t.bigint "users_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["from_id"], name: "index_movings_on_from_id"
     t.index ["product_id"], name: "index_movings_on_product_id"
+    t.index ["shipments_id"], name: "index_movings_on_shipments_id"
+    t.index ["to_id"], name: "index_movings_on_to_id"
+    t.index ["users_id"], name: "index_movings_on_users_id"
+  end
+
+  create_table "partners", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "products", force: :cascade do |t|
@@ -58,5 +73,7 @@ ActiveRecord::Schema.define(version: 2019_12_04_043305) do
   end
 
   add_foreign_key "movings", "products"
+  add_foreign_key "movings", "shipments", column: "shipments_id"
+  add_foreign_key "movings", "users", column: "users_id"
   add_foreign_key "shipments", "products", column: "products_id"
 end

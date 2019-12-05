@@ -58,6 +58,6 @@ class MovingsController < ApplicationController
   end
 
   def moving_params
-    params.require(:moving).permit(:order_code, :product_id, :shipment, :price, :count, :comment, :status)
+    params.require(:moving).permit(:order_code, :product_id, :from_id, :to_id, :shipment, :price, :count, :comment, :status)
   end
 end

@@ -1,11 +1,13 @@
 class Moving < ApplicationRecord
-  scope :order_by, -> (code) { where(order_code: code) }
+  scope :order_by, ->(code) { where(order_code: code) }
 
   has_many :products, dependent: :nullify
   has_many :shipments, dependent: :nullify
   has_many :users, dependent: :nullify
+  has_many :partners, dependent: :nullify
 
-  enum status: %i[internal_displacement sale goods_receipt].freeze
+  #внутреннее перемещение, продажа, поступление, списание товара
+  enum status: %i[InterdivisionTransfer Sale Receipt Write_off].freeze
   validates :status, inclusion: { in: statuses.keys }
 
 

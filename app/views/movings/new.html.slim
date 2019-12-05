@@ -8,6 +8,12 @@
     = f.label :product
     = f.collection_select :product_id, Product.all, :id, :title, prompt: true, class: 'form-control'
   p
+    = f.label :from
+    = f.collection_select :from_id, Partner.all, :id, :title, prompt: true, class: 'form-control'
+  p
+    = f.label :to
+    = f.collection_select :to_id, Partner.all, :id, :title, prompt: true, class: 'form-control'
+  p
     = f.label :price
     = f.text_field :price
   p
